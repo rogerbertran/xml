@@ -1,5 +1,9 @@
 package xml;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -13,8 +17,14 @@ public class ExempleJAXB {
 	
 	public static void main(String[] args) {
 		Empleat currito = new Empleat(12,"man",35,"Pepe","123","Boss");
-		Empleat pepon = new Empleat();
+		Empleat chema = new Empleat(13,"man",32,"Chema","Delegat","Boss");
+		Empleat juan = new Empleat(14,"man",35,"Juan","PENELARGO","jefote");
+	try {	
+		ArrayList<Empleat> myStaff = new ArrayList <Empleat>();
+		myStaff.add(chema);
+		myStaff.add(juan);
 		
+		marshalLlista(myStaff, new File("llistaEmpleats.xml"));
 		/**
 		 * try {
 		 * 	objecteXml(currito);
@@ -22,11 +32,24 @@ public class ExempleJAXB {
 		 * 	e.printStackTrace();
 		 * }
 		 */
-		try {
-			pepon = XmlAObjecte();
-			System.out.println(pepon);
+			chema = XmlAObjecte();
+			System.out.println(chema);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	private static void marshalLlista(ArrayList<Empleat> myStaff, File file) {
+		try {
+			JAXBContext contexte = JAXBContext.newInstance(Staff.class);
+			BufferedWriter writer = null;
+			writer = new BufferedWriter(new FileWriter(file));
+			Marshaller m = contexte.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			m.marshal(myStaff, writer);
+			writer.close();
+		} catch (JAXBException | IOException j) {
+			j.printStackTrace();
 		}
 	}
 	
