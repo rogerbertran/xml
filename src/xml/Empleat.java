@@ -1,14 +1,13 @@
 package xml;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement (name = "Treballador")
-@XmlType (propOrder = {"nom", "carrec", "edat", "sexe"})
+@XmlType (propOrder = {"id", "nom", "carrec", "edat", "sexe", "password"})
 
 public class Empleat {
 	private int id;
@@ -34,7 +33,6 @@ public class Empleat {
 		this.password = password;
 	}
 	
-	@XmlAttribute
 	public int getId() {
 		return id;
 	}
