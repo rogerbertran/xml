@@ -12,6 +12,12 @@ public class Empleat {
 	private String carrec;
 	private String password;
 	
+	
+	
+	public Empleat() {
+		super();
+	}
+
 	public Empleat(int id, String sexe, int edat, String nom, String carrec, String password) {
 		super();
 		this.id = id;
