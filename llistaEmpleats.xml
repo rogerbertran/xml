@@ -1,1 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Company_Staff>
+    <Pencaire>
+        <id>13</id>
+        <sexe>man</sexe>
+        <edat>32</edat>
+        <nom>Chema</nom>
+        <carrec>Delegat</carrec>
+        <password>Boss</password>
+    </Pencaire>
+    <Pencaire>
+        <id>14</id>
+        <sexe>man</sexe>
+        <edat>35</edat>
+        <nom>Juan</nom>
+        <carrec>PENELARGO</carrec>
+        <password>jefote</password>
+    </Pencaire>
+</Company_Staff>

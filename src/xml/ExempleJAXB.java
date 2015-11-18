@@ -3,7 +3,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -20,7 +19,7 @@ public class ExempleJAXB {
 		Empleat chema = new Empleat(13,"man",32,"Chema","Delegat","Boss");
 		Empleat juan = new Empleat(14,"man",35,"Juan","PENELARGO","jefote");
 	try {	
-		ArrayList<Empleat> myStaff = new ArrayList <Empleat>();
+		Staff myStaff = new Staff();
 		myStaff.add(chema);
 		myStaff.add(juan);
 		
@@ -39,7 +38,7 @@ public class ExempleJAXB {
 		}
 	}
 	
-	private static void marshalLlista(ArrayList<Empleat> myStaff, File file) {
+	private static void marshalLlista(Staff myStaff, File file) {
 		try {
 			JAXBContext contexte = JAXBContext.newInstance(Staff.class);
 			BufferedWriter writer = null;

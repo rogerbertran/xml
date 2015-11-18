@@ -17,7 +17,11 @@ public class Staff {
 	public ArrayList<Empleat> getCurrantes() {
 		return currantes;
 	}
-
+	
+	public void add(Empleat currante) {
+		currantes.add(currante);
+	}
+	
 	public void setCurrantes(ArrayList<Empleat> currantes) {
 		this.currantes = currantes;
 	}
