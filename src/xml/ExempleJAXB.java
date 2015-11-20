@@ -1,6 +1,8 @@
 package xml;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -13,7 +15,8 @@ public class ExempleJAXB {
 	
 	private static final String NOM_FITXER = "exemple.xml";
 	private static final String NOM_FITXER2 = "exemple2.xml";
-	
+	private static final String NOM_FITXER3 = "exemple3.xml";
+
 	public static void main(String[] args) {
 		Empleat currito = new Empleat(12,"man",35,"Pepe","123","Boss");
 		Empleat chema = new Empleat(13,"man",32,"Chema","Delegat","Boss");
@@ -71,6 +74,20 @@ public class ExempleJAXB {
 			return currante;
 		} catch (JAXBException j) {
 			j.printStackTrace();
+		}
+		return null;
+	}
+	
+	private static Staff unMarsalLista(File file) {
+		try {
+			BufferedReader reader = null;
+			reader = new BufferedReader(new FileReader(file));
+			JAXBContext contexte = JAXBContext.newInstance(Staff.class);
+			Unmarshaller um = contexte.createUnmarshaller();
+			Staff lista = (Staff) um.unmarshal(new File(NOM_FITXER3));
+			return lista;
+		} catch (JAXBException | IOException e) {
+			e.printStackTrace();
 		}
 		return null;
 	}
